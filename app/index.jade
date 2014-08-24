@@ -9,6 +9,9 @@ head
       .col-xs-12
         h1.text-center Angular Forms
     .row
+      .col-xs-12
+        h3.text-center Form Validation
+    .row
       .col-xs-4.col-xs-offset-4
         form(name="signInForm" ng-controller="SignInController" ng-submit="signIn()")
           .form-group(ng-class="{ 'has-success': signInForm.email.$valid, 'has-error': signInForm.email.$invalid }")
@@ -17,6 +20,23 @@ head
           .form-group
             label.control-label(for="password") Password
             input.form-control(type="password" placeholder="Password" name="password" required ng-model="user.password" password)
-          button.btn.btn-primary(type="submit" name="submit" ng-disabled="signInForm.$invalid") Submit
+          button.btn.btn-primary.btn-block(type="submit" name="submit" ng-disabled="signInForm.$invalid") Sign In
+
+    .row
+      .col-xs-12
+        h3.text-center Custom (Scope) Validation
+    .row
+      .col-xs-4.col-xs-offset-4
+        form(name="customerForm" ng-controller="CustomerController" ng-submit="saveCustomer()")
+          .form-group
+            label.control-label(for="firstName") First Name
+            input.form-control(type="text" name="firstName" placeholder="First Name" ng-model="customer.firstName" ng-change="change()")
+          .form-group
+            label.control-label(for="lastName") Last Name
+            input.form-control(type="text" name="lastName" placeholder="Last Name" ng-model="customer.lastName" ng-change="change()")
+          .form-group(ng-class="{ 'has-success': customer.hasValidCreditCard, 'has-error': !customer.hasValidCreditCard }")
+            label.control-label(for="creditCard") Credit Card
+            input.form-control(type="text" name="creditCard" placeholder="Credit Card Number" required ng-model="customer.creditCard" ng-change="change()")
+          button.btn.btn-primary.btn-block(type="submit" name="submit" ng-disabled="!customer.isValid") Save
     script(src="js/vendor.js", type="text/javascript")
     script(src="js/bundle.js", type="text/javascript")
