@@ -1,9 +1,10 @@
 doctype html
 html(lang="en", ng-app="application")
-head
-  title Angular Forms
-  link(rel="stylesheet", href="css/vendor.css")
-  link(rel="stylesheet", href="css/styles/app.css")
+  head
+    title Angular Forms
+    link(rel="stylesheet", href="css/vendor.css")
+    link(rel="stylesheet", href="css/styles/app.css")
+    meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no")
   body.container(ng-controller="ApplicationController")
     .row
       .col-xs-12
@@ -12,7 +13,7 @@ head
       .col-xs-12
         h3.text-center Form Validation
     .row
-      .col-xs-4.col-xs-offset-4
+      .col-sm-6.col-sm-offset-3.col-xs-12
         form(name="signInForm" ng-controller="SignInController" ng-submit="signIn()")
           .form-group(ng-class="{ 'has-success': signInForm.email.$valid, 'has-error': signInForm.email.$invalid }")
             label.control-label(for="email") Email
@@ -26,7 +27,7 @@ head
       .col-xs-12
         h3.text-center Custom (Scope) Validation
     .row
-      .col-xs-4.col-xs-offset-4
+      .col-sm-6.col-sm-offset-3.col-xs-12
         form(name="customerForm" ng-controller="CustomerController" ng-submit="saveCustomer()")
           .form-group
             label.control-label(for="firstName") First Name
