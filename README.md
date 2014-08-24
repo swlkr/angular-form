@@ -8,3 +8,6 @@
     $ npm install
     $ bower install
     $ gulp
+
+##### Start it
+    $ open http://localhost:5000
